@@ -42,21 +42,16 @@ function getSecondsToday() {
 console.log(getSecondsToday())
 
 function formatDate(date) {
-  let Month = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  let hour = date.getHours();
-  let minutes = date.getMinutes();
-  let Ms = new Date() - date;
-  let Sec = Math.round(Ms / 1000);
-  let Min = Sec / 60;
-  let Hour = Min / 60;
-
-  hour = hour < 10 ? '0' + hour : hour;
-  minutes = minutes < 10 ? '0' + minutes : minutes;
-  year = year.toString().slice(-2);
-  month = month < 10 ? '0' + month : month;
-  Month = Month < 10 ? '0' + Month : Month;
+  let Month = date.getDate()
+  let month = date.getMonth() + 1
+  let year = date.getFullYear()
+  let hour = date.getHours()
+  let minutes = date.getMinutes()
+  let Ms = new Date() - date
+  let Sec = Math.round(Ms / 1000)
+  let Min = Sec / 60
+  let Hour = Min / 60
+  year = year.toString().slice(-2)
 
   if (Sec < 1) {
     return 'сейчас';
@@ -70,3 +65,13 @@ function formatDate(date) {
 }
 
 console.log( formatDate(new Date(new Date - 86400 * 1000)) )
+
+const date = new Date(2012, 1, 20, 3, 12)
+
+console.log(date);
+
+let date2 = new Date(2015, 0, 2)
+function getDateAgo(date, d){
+    date.setDate(date.getDate() - d)
+    return date.getDate()
+}

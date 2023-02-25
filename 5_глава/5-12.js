@@ -1,13 +1,21 @@
-const date = new Date(2012, 1, 20, 3, 12)
 
-console.log(date);
 
-let date2 = new Date(2015, 0, 2)
-function getDateAgo(date, d){
-    date.setDate(date.getDate() - d)
-    return date.getDate()
-}
-
-function getLastDayOfMonth(year, month){
-
-}
+let room = {
+    number: 23
+    };
+  
+let meetup = {
+    title: "Совещание",
+    occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
+    place: room
+    };
+  
+room.occupiedBy = meetup
+meetup.self = meetup
+  
+alert( JSON.stringify(meetup, function replacer(key, value) {
+    if(key != "" && value == meetup){
+        return undefined
+    }
+    return value
+}));
